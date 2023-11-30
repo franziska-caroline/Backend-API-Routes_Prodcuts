@@ -11,14 +11,14 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-export default function allListingPage() {
+export default function Products() {
   const { data: products, error, isLoading } = useSWR("/api/products", fetcher);
 
   if (error) return <p>{error.message}</p>;
   if (isLoading) return <p>loading...</p>;
 
   if (!products) {
-    return <div>is loading...</div>;
+    return <div>loading...</div>;
   }
 
   return (
